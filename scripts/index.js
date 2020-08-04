@@ -1,9 +1,9 @@
-import TestComponent from './component.js'
+import Counter from './component.js'
 
 const App = () => (
   <div>
-    Hello From React <TestComponent testProp="test"></TestComponent>
+    Hello From React  adasdasads <Counter></Counter>
   </div>
 )
 
-ReactDOM.render(<App />, document.getElementById('App'))
+export default App

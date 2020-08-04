@@ -3,6 +3,10 @@ export default (props) => {
   const handleClick = () => {
     setCount(count + 1)
   }
+
+  const a = { b: 'c' }
+  const d = { ...a }
+
   return (
     <div>
       <p>You clicked {count} times</p>
