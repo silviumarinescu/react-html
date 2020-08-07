@@ -1,3 +1,17 @@
+const Component1 = window.styled.div`
+  color: red;
+  p {
+    color:green;
+    span{
+      color:red;
+    }
+  }
+  button{
+    color: pink
+  }
+`
+
+
 export default (props) => {
   const [count, setCount] = React.useState(0)
   const handleClick = () => {
@@ -8,9 +22,9 @@ export default (props) => {
   const d = { ...a }
 
   return (
-    <div>
-      <p>You clicked {count} times</p>
+    <Component1>
+      <p>You clicked {count} times <span>aaa</span></p>
       <button onClick={handleClick}>Click me</button>
-    </div>
+    </Component1>
   )
 }
