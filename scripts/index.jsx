@@ -1,4 +1,4 @@
-import Counter from './counter.js'
+import Counter from './counter.jsx'
 
 const GlobalStyle = styled.createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
