@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>React Test</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/svg+xml" href="images/logo.svg" />
-  <link rel="stylesheet" href="styles/index.css">
-  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/styled-components@4.0.1/dist/styled-components.min.js" crossorigin></script>
@@ -22,7 +22,7 @@
       moduleId: "main"
     });
   </script>
-  <script type="text/babel" src="scripts/component.js" data-plugins="transform-modules-umd"></script>
+  <script type="text/babel" src="scripts/counter.js" data-plugins="transform-modules-umd"></script>
   <script type="text/babel" src="scripts/index.js" data-plugins="transform-modules-umd"></script>
   <script type="text/babel" data-presets="preset">
     import App from './scripts/index.js'

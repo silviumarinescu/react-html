@@ -1,8 +1,17 @@
-import Counter from './component.js'
+import Counter from './counter.js'
+
+const GlobalStyle = styled.createGlobalStyle`
+  @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap');
+  body {
+    background-color: lightblue;
+    font-family: 'Work Sans', sans-serif;
+  }
+`
 
 const App = () => (
   <div>
-    Hello From React  adasdasads <Counter></Counter>
+    <GlobalStyle />
+    <Counter startCount={7} />
   </div>
 )
 
