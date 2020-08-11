@@ -8,6 +8,7 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
   <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.19/lodash.min.js" crossorigin></script>
   <script src="https://unpkg.com/styled-components@4.0.1/dist/styled-components.min.js" crossorigin></script>
   <script>
     Babel.registerPreset("preset", {
@@ -22,7 +23,6 @@
       moduleId: "main"
     });
   </script>
-  <script type="text/babel" src="components/counter.jsx" data-plugins="transform-modules-umd"></script>
   <script type="text/babel" src="components/index.jsx" data-plugins="transform-modules-umd"></script>
   <script type="text/babel" data-presets="preset">
     import App from './components/index.jsx'
