@@ -10,8 +10,8 @@ const GlobalStyle = styled.createGlobalStyle`
 const App = () => {
   const initialState = {
     gridSize: {
-      w: 15,
-      h: 15,
+      w: 20,
+      h: 20,
     },
     velocity: {
       x: 1,
@@ -38,133 +38,136 @@ const App = () => {
 
   const StyledApp = styled.div`
     .grid {
-      width: ${state.gridSize.w * 64}px;
-      height: ${state.gridSize.h * 64}px;
+      width: 100vw;
+      height: 100vh;
       display: grid;
       grid-template-columns: repeat(${state.gridSize.w}, 1fr);
       grid-template-rows: repeat(${state.gridSize.h}, 1fr);
       grid-auto-flow: row;
+      background: black;
       .cell {
-        background: black;
         &.snake,
         &.fruit {
           position: relative;
-          &:after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size : ${64*5}px ${64*4}px;
-            background-image: url("images/snake-graphics.png");
-          }
-        }
-
-        &.head-right {
-          &:after {
-            background-position: 100% 0;
-          }
-        }
-        &.head-left {
-          &:after {
-            background-position: -${64 * 3}px -${64 * 1}px;
-          }
-        }
-        &.head-up {
-          &:after {
-            background-position: -${64 * 3}px -${64 * 0}px;
-          }
-        }
-        &.head-down {
-          &:after {
-            background-position: -${64 * 4}px -${64 * 1}px;
-          }
-        }
-
-        &.tail-right {
-          &:after {
-            background-position: -${64 * 4}px -${64 * 2}px;
-          }
-        }
-        &.tail-left {
-          &:after {
-            background-position: -${64 * 3}px -${64 * 3}px;
-          }
-        }
-        &.tail-up {
-          &:after {
-            background-position: -${64 * 3}px -${64 * 2}px;
-          }
-        }
-        &.tail-down {
-          &:after {
-            background-position: -${64 * 4}px -${64 * 3}px;
-          }
         }
         &.fruit {
-          &:after {
-            background-position: 0 100%;
+          background: red;
+          border-radius: 100%;
+        }
+
+        &.head {
+          background: green;
+          &:after{
+            content: "";
+            border-radius: 100%;
+            width: 10%;
+            height: 10%;
+            background: black;
+            position:absolute;
+          }
+          &:before{
+            content: "";
+            border-radius: 100%;
+            width: 10%;
+            height: 10%;
+            background: black;
+            position:absolute;
+          }
+          &.right {
+            border-radius: 0px 50% 50% 0px;
+            &:after{
+              top:20%;
+              left:70%;
+            }
+            &:before{
+              top:70%;
+              left:70%;
+            }
+          }
+          &.left {
+            border-radius: 50% 0px 0px 50%;
+            &:after{
+              top:20%;
+              left:30%;
+            }
+            &:before{
+              top:70%;
+              left:30%;
+            }
+          }
+          &.up {
+            border-radius: 50% 50% 0px 0px;
+            &:after{
+              top:30%;
+              left:20%;
+            }
+            &:before{
+              top:30%;
+              left:70%;
+            }
+          }
+          &.down {
+            border-radius: 0px 0px 50% 50%;
+            &:after{
+              top:70%;
+              left:20%;
+            }
+            &:before{
+              top:70%;
+              left:70%;
+            }
           }
         }
-        &.body-left-left {
-          &:after {
-            background-position: -${64 * 1}px -${64 * 0}px;
+
+        &.tail {
+          background: green;
+          &.right {
+            border-radius: 50% 0px 0px 50%;
+          }
+          &.left {
+            border-radius: 0px 50% 50% 0px;
+          }
+          &.up {
+            border-radius: 0px 0px 50% 50%;
+          }
+          &.down {
+            border-radius: 50% 50% 0px 0px;
           }
         }
-        &.body-left-up {
-          &:after {
-            background-position: -${64 * 0}px -${64 * 1}px;
+
+        &.body {
+          background: green;
+          &.right {
+            &.d-up {
+              border-radius: 0px 0px 50% 0px;
+            }
+            &.d-down {
+              border-radius: 0px 50% 0px 0px;
+            }
           }
-        }
-        &.body-left-down {
-          &:after {
-            background-position: -${64 * 0}px -${64 * 0}px;
+          &.left {
+            &.d-up {
+              border-radius: 0px 0px 0px 50%;
+            }
+            &.d-down {
+              border-radius: 50% 0px 0px 0px;
+            }
           }
-        }
-        &.body-down-down {
-          &:after {
-            background-position: -${64 * 2}px -${64 * 1}px;
+          &.up {
+            &.d-left {
+              border-radius: 0px 50% 0px 0px;
+            }
+            &.d-right {
+              border-radius: 50% 0px 0px 0px;
+            }
           }
-        }
-        &.body-down-left {
-          &:after {
-            background-position: -${64 * 2}px -${64 * 2}px;
-          }
-        }
-        &.body-down-right {
-          &:after {
-            background-position: -${64 * 0}px -${64 * 1}px;
-          }
-        }
-        &.body-up-up {
-          &:after {
-            background-position: -${64 * 2}px -${64 * 1}px;
-          }
-        }
-        &.body-up-right {
-          &:after {
-            background-position: -${64 * 0}px -${64 * 0}px;
-          }
-        }
-        &.body-up-left {
-          &:after {
-            background-position: -${64 * 2}px -${64 * 0}px;
-          }
-        }
-        &.body-right-right {
-          &:after {
-            background-position: -${64 * 1}px -${64 * 0}px;
-          }
-        }
-        &.body-right-down {
-          &:after {
-            background-position: -${64 * 2}px -${64 * 0}px;
-          }
-        }
-        &.body-right-up {
-          &:after {
-            background-position: -${64 * 2}px -${64 * 2}px;
+          &.down {
+            &.d-left {
+              border-radius: 0px 0px 50% 0px;
+            }
+            &.d-right {
+              border-radius: 0px 0px 0px 50%;
+            }
           }
         }
       }
@@ -190,14 +193,14 @@ const App = () => {
   const startGame = () => {
     Object.assign(state, _.cloneDeep(initialState));
     setRandomFruit();
-    render();
+    callNextFrame();
     setState({ ...state });
   };
 
-  const render = () => {
+  const callNextFrame = () => {
     state.timeout = setTimeout(
       renderFrame,
-      ((state.gridSize.w * state.gridSize.h) / state.tailSize) * 10
+      ((state.gridSize.w * state.gridSize.h) / state.tailSize) * 5
     );
   };
 
@@ -240,7 +243,7 @@ const App = () => {
         state.victory
     );
 
-    render();
+    callNextFrame();
     setState({ ...state });
   };
   const keyPress = (e) => {
@@ -298,16 +301,19 @@ const App = () => {
                 className={`cell${
                   state.trail.find((it) => it.x == j && it.y == i)
                     ? state.trail.find((it) => it.x == j && it.y == i).isTail
-                      ? ` snake tail-${state.trail.find((it) => it.x == j && it.y == i).direction}`
-                      : ` snake body-${
+                      ? ` snake tail ${
+                          state.trail.find((it) => it.x == j && it.y == i)
+                            .direction
+                        }`
+                      : ` snake body ${
                           state.trail.find((it) => it.x == j && it.y == i)
                             .prevDirection
-                        }-${
+                        } d-${
                           state.trail.find((it) => it.x == j && it.y == i)
                             .direction
                         }`
                     : state.head.x == j && state.head.y == i
-                    ? ` snake head-${state.direction}`
+                    ? ` snake head ${state.direction}`
                     : state.fruit.x == j && state.fruit.y == i
                     ? " fruit"
                     : ""
