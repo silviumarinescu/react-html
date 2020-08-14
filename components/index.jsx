@@ -56,7 +56,7 @@ const App = () => {
         }
 
         &.head {
-          background: green;
+          background: pink;
           &:after{
             content: "";
             border-radius: 100%;
@@ -120,7 +120,7 @@ const App = () => {
         }
 
         &.tail {
-          background: green;
+          background:blue;
           &.right {
             border-radius: 50% 0px 0px 50%;
           }
