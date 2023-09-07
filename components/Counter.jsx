@@ -1,8 +1,7 @@
 const { useState } = React;
 
-export default () => {
+export default ({ text }) => {
   const [count, setCount] = useState(1);
-
   return (
     <div
       className="counter"
@@ -10,7 +9,9 @@ export default () => {
         setCount(count + 1);
       }}
     >
-      <h1>this is a counter {count}</h1>
+      <h1>
+        {text} <span>{count}</span>
+      </h1>
     </div>
   );
 };

@@ -1,3 +1,8 @@
 .counter{
     user-select: none;
+    background-color: red;
+}
+
+.counter h1{
+
 }
