@@ -1,8 +1,4 @@
-.counter{
-    user-select: none;
-    background-color: red;
-}
-
-.counter h1{
-
+body{
+    margin: 0;
+    font-family:monospace;
 }

@@ -1,17 +1,25 @@
+import variables from "../variables";
+
 const { useState } = React;
+
+const StyledCounter = styled.div`
+  user-select: none;
+  cursor: pointer;
+  font-size: 30px;
+  span {
+    color: ${variables.primaryColor};
+  }
+`;
 
 export default ({ text }) => {
   const [count, setCount] = useState(1);
   return (
-    <div
-      className="counter"
+    <StyledCounter
       onClick={() => {
         setCount(count + 1);
       }}
     >
-      <h1>
-        {text} <span>{count}</span>
-      </h1>
-    </div>
+      {text} <span>{count}</span>
+    </StyledCounter>
   );
 };
