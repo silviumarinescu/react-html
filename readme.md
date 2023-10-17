@@ -1,0 +1,1 @@
+npx browser-sync -s -w --single
